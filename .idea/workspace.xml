@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="remove dependencies">
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/data/GetCountriesData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/abc.json" afterDir="false" />
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-125] Verify get countries api">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/json-schema/get-countries-v2-json-schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/GetCountriesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/get-countries-json-schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/json-schema/get-countries-json-schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/data/GetCountriesData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/data/GetCountriesData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +79,7 @@
     "Gradle.Build auto-api-java.executor": "Run",
     "Gradle.FirstApiTests.testGetApi (1).executor": "Run",
     "Gradle.FirstApiTests.testGetApi.executor": "Run",
+    "Gradle.GetCountriesApiTests.executor": "Run",
     "Gradle.GetCountriesApiTests.verifyGetCountriesApiReturnCorrectData (1).executor": "Run",
     "Gradle.GetCountriesApiTests.verifyGetCountriesApiReturnCorrectData.executor": "Run",
     "Gradle.auto-api-java [:org.example.Main.main()].executor": "Run",
@@ -103,7 +102,7 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GetCountriesApiTests.verifyGetCountriesApiReturnCorrectData (1)">
+  <component name="RunManager" selected="Gradle.GetCountriesApiTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="auto-api-java.main" />
@@ -165,6 +164,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="GetCountriesApiTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;api.test.GetCountriesApiTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="GetCountriesApiTests.verifyGetCountriesApiReturnCorrectData (1)" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -215,6 +238,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GetCountriesApiTests" />
         <item itemvalue="Gradle.FirstApiTests.testGetApi (1)" />
         <item itemvalue="Gradle.GetCountriesApiTests.verifyGetCountriesApiReturnCorrectData" />
         <item itemvalue="Gradle.FirstApiTests.testGetApi" />
@@ -255,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724311042749</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[ID-125] Verify get countries api">
+      <option name="closed" value="true" />
+      <created>1724501107758</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724501107759</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,6 +305,22 @@
     <MESSAGE value="first init" />
     <MESSAGE value="2 init" />
     <MESSAGE value="remove dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove dependencies" />
+    <MESSAGE value="[ID-125] Verify get countries api" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ID-125] Verify get countries api" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java</url>
+          <line>33</line>
+          <properties class="api.test.GetCountriesApiTests" method="verifyGetCountriesApiReturnCorrectData">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
