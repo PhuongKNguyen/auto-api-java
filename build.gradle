@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
@@ -18,6 +20,7 @@ dependencies {
     testImplementation 'io.rest-assured:json-schema-validator:5.5.0'
 // https://mvnrepository.com/artifact/net.javacrumbs.json-unit/json-unit
     testImplementation 'net.javacrumbs.json-unit:json-unit:3.4.1'
+
 
 
 
