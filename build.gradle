@@ -20,11 +20,11 @@ dependencies {
     testImplementation 'io.rest-assured:json-schema-validator:5.5.0'
 // https://mvnrepository.com/artifact/net.javacrumbs.json-unit/json-unit
     testImplementation 'net.javacrumbs.json-unit:json-unit:3.4.1'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 
-
-
-
-
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation 'org.slf4j:slf4j-api:2.0.13'
 }
 
 test {
