@@ -3,6 +3,8 @@ package api.test;
 import api.data.GetCountriesData;
 //import com.google.common.base.Predicate;
 import api.model.country.Country;
+import api.model.country.CountryPagination;
+import api.model.country.CountryVersionThree;
 import api.model.country.CountryVersionTwo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,12 +18,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static api.data.GetCountriesData.ALL_COUNTRIES_V3;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static net.javacrumbs.jsonunit.JsonMatchers.jsonEquals;
 import static net.javacrumbs.jsonunit.core.Option.IGNORING_ARRAY_ORDER;
@@ -34,7 +38,8 @@ public class GetCountriesApiTests {
     private static final String GET_COUNTRIES_V2_PATH = "/api/v2/countries";
     private static final String GET_COUNTRIES_BY_CODE_PATH = "/api/v1/countries/{code}";
     private static final String GET_COUNTRIES_BY_FILTER = "/api/v3/countries";
-
+    private static final String GET_COUNTRIES_BY_PAGINATION = "/api/v5/countries";
+    private static final String GET_COUNTRIES_PRIVATE = "/api/v5/countries";
     @BeforeAll
     static void setUp() {
         RestAssured.baseURI = "http://localhost";
@@ -95,7 +100,7 @@ public class GetCountriesApiTests {
         params.put("code", country.getCode());
         Response actualResponse = RestAssured.given().log().all().get(GET_COUNTRIES_BY_CODE_PATH, params);
         assertThat(200, equalTo(actualResponse.statusCode()));
-        String actualResponseBody = actualResponse.asString();
+        Country actualResponseBody = actualResponse.as(Country.class);
         assertThat(String.format("Actual:%s\n Expected:%s\n", actualResponseBody, country), actualResponseBody, jsonEquals(country));
     }
     static Stream<Map<String,String>> getCountriesByFilterProvider()throws JsonProcessingException{
@@ -127,10 +132,64 @@ public class GetCountriesApiTests {
                 case ">=" ->greaterThanOrEqualTo(actualGdp);
                 case "=="-> equalTo(actualGdp);
                 case "!="->not(equalTo(actualGdp));
-
+                default ->equalTo(actualGdp);
             }
             assertThat(country.getGdp(),matcher);
         });
+    }
+    @Test
+    void verifyGetCountriesPagination() {
+        int pageSize=4;
+        Response actualResponseFirstPage = RestAssured.given().log().all()
+                .queryParam("page", 1)
+                .queryParams("size",pageSize)
+                .get(GET_COUNTRIES_BY_PAGINATION);
+        CountryPagination countryPaginationFirstPage = actualResponseFirstPage.as(new TypeRef<CountryPagination>() {
+        });
+        Response actualResponseSecondPage = RestAssured.given().log().all()
+                .queryParam("page", 2)
+                .queryParams("size", pageSize)
+                .get(GET_COUNTRIES_BY_PAGINATION);
+        CountryPagination countryPaginationSecondPage = actualResponseSecondPage.as(new TypeRef<CountryPagination>() {
+        });
+        assertThat(countryPaginationFirstPage.getData().size(), equalTo(pageSize));
+        assertThat(countryPaginationSecondPage.getData().size(), equalTo(pageSize));
+        assertThat(countryPaginationFirstPage.getData().containsAll(countryPaginationSecondPage.getData()), is(false));
+        int sizeOfLastPage = countryPaginationFirstPage.getTotal() % pageSize;
+        int lastPage = countryPaginationFirstPage.getTotal() / pageSize;
+        if (sizeOfLastPage > 0) {
+            lastPage++;
+        }
+        if (sizeOfLastPage==0){
+            sizeOfLastPage=pageSize;
+        }
+        Response actualResponseLastPage = RestAssured.given().log().all()
+                .queryParam("page", lastPage)
+                .queryParams("size", pageSize)
+                .get(GET_COUNTRIES_BY_PAGINATION);
+        CountryPagination countryPaginationLastPage = actualResponseLastPage.as(new TypeRef<CountryPagination>() {
+        });
+        assertThat(countryPaginationLastPage.getData().size(), equalTo(sizeOfLastPage));
+        Response actualResponseLastPagePlus = RestAssured.given().log().all()
+                .queryParam("page", lastPage)
+                .queryParams("size", pageSize)
+                .get(GET_COUNTRIES_BY_PAGINATION);
+        CountryPagination countryPaginationLastPagePlus = actualResponseLastPage.as(new TypeRef<CountryPagination>() {
+        });
+        assertThat(countryPaginationLastPagePlus.getData().size(), equalTo(sizeOfLastPage));
+    }
+@Test
+    void verifyGetCountriesWithPrivateKey()
+{
+    Response actualResponse = RestAssured.given().log().all()
+            .header("api-key","private")
+            .get(GET_COUNTRIES_PRIVATE);
+
+   /* List<CountryVersionThree> countries=actualResponse.as(new TypeRef<List<CountryVersionThree>>() {
+    });*/
+    assertThat(actualResponse.asString(),jsonEquals(ALL_COUNTRIES_V3).when(IGNORING_ARRAY_ORDER));
+}
+
     }
 //my code
   /*  void verifyGetCountiesApiReturnCorrectDataByFilter(String operator, Matcher<Float> matcher) {
@@ -230,5 +289,5 @@ public class GetCountriesApiTests {
     
  */
 
-}
+
 
