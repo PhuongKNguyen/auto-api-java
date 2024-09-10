@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-128] Verify API get countries by filter">
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/country/CountryPagination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/country/CountryVersionThree.java" afterDir="false" />
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-131] Refactor the most likely model to one model">
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/login/LoginInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/login/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/CreateUserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/test/LoginApiTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/json-schema/swagger.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/data/GetCountriesData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/data/GetCountriesData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/country/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/country/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +38,11 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="auto-api-java" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="auto-api-java" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -79,6 +88,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build auto-api-java.executor": "Run",
+    "Gradle.CreateUser.verifyStaffLoginSuccessful.executor": "Debug",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.FirstApiTests.testGetApi (1).executor": "Run",
     "Gradle.FirstApiTests.testGetApi.executor": "Run",
@@ -101,20 +111,24 @@
     "Gradle.GetCountriesApiTestsOptimize.verifyGetCountriesApiByOperator.executor": "Run",
     "Gradle.GetCountriesOperator.executor": "Run",
     "Gradle.GetCountriesOperator.verifyGetCountryApiReturnCorrectDataWhenGivenGreaterThanOperator.executor": "Run",
+    "Gradle.LoginApiTests.verifyStaffLoginSuccessful.executor": "Debug",
     "Gradle.auto-api-java [:api.test.Demo.main()].executor": "Run",
     "Gradle.auto-api-java [:org.example.Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/david/Documents/GITHUB/kapi-world/auto-api-java",
+    "last_opened_file_path": "/Users/david/Documents/GITHUB/kapi-world/auto-api-java/src/test/resources",
     "onboarding.tips.debug.path": "/Users/david/Documents/GITHUB/kapi-world/auto-api-java/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41609195",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources/json-schema" />
       <recent name="$PROJECT_DIR$/src/test/java/api/" />
@@ -124,8 +138,8 @@
       <recent name="api.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GetCountriesApiTests.verifyGetCountriesWithPrivateKey">
-    <configuration name="GetCountriesApiTests.testCaseOperators" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CreateUser.verifyStaffLoginSuccessful">
+    <configuration name="CreateUser.verifyStaffLoginSuccessful" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -138,31 +152,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;api.test.GetCountriesApiTests.testCaseOperators&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="GetCountriesApiTests.testCasesForOperators" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;api.test.GetCountriesApiTests.testCasesForOperators&quot;" />
+            <option value="&quot;api.test.CreateUser.verifyStaffLoginSuccessful&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -245,7 +235,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GetCountriesApiTests.verifyGetCountryApiReturnCorrectDataWithCorrespondingFilter" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GetCountriesApiTests.verifyGetCountryByCodeReturnCorrectData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -258,7 +248,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;api.test.GetCountriesApiTests.verifyGetCountryApiReturnCorrectDataWithCorrespondingFilter&quot;" />
+            <option value="&quot;api.test.GetCountriesApiTests.verifyGetCountryByCodeReturnCorrectData&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoginApiTests.verifyStaffLoginSuccessful" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;api.test.LoginApiTests.verifyStaffLoginSuccessful&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -271,11 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LoginApiTests.verifyStaffLoginSuccessful" />
+        <item itemvalue="Gradle.GetCountriesApiTests.verifyGetCountryByCodeReturnCorrectData" />
         <item itemvalue="Gradle.GetCountriesApiTests.verifyGetCountriesWithPrivateKey" />
         <item itemvalue="Gradle.GetCountriesApiTests.verifyGetCountriesPagination" />
-        <item itemvalue="Gradle.GetCountriesApiTests.verifyGetCountryApiReturnCorrectDataWithCorrespondingFilter" />
-        <item itemvalue="Gradle.GetCountriesApiTests.testCasesForOperators" />
-        <item itemvalue="Gradle.GetCountriesApiTests.testCaseOperators" />
+        <item itemvalue="Gradle.CreateUser.verifyStaffLoginSuccessful" />
       </list>
     </recent_temporary>
   </component>
@@ -368,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724937702206</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="[ID-131] Refactor the most likely model to one model">
+      <option name="closed" value="true" />
+      <created>1725543566529</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725543566529</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -391,6 +413,18 @@
     <MESSAGE value="[ID-126] Verify get countries by ObjectMapper" />
     <MESSAGE value="[ID-127] Verify country.java by lombok" />
     <MESSAGE value="[ID-128] Verify API get countries by filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ID-128] Verify API get countries by filter" />
+    <MESSAGE value="[ID-131] Refactor the most likely model to one model" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ID-131] Refactor the most likely model to one model" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/test/CreateUser.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
