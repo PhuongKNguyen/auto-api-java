@@ -25,6 +25,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'org.json:json:20210307'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.0'
+
 }
 
 test {

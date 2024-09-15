@@ -1,14 +1,12 @@
 package api.model.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 public class Address {
     private String streetNumber;
     private String street;
@@ -19,4 +17,18 @@ public class Address {
     private String zip;
     private String country;
 
+    public static Address getDefault() {
+        return Address.builder()
+                .streetNumber("123")
+                .street("Main St")
+                .ward("Ward 1")
+                .district("District 1")
+                .city("Thu Duc")
+                .state("Ho Chi Minh")
+                .zip("70000")
+                .country("VN")
+                .build();
+
+
+    }
 }
