@@ -1,6 +1,9 @@
 package api.model.user;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -8,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class User <T>{
+public class User<T> {
     private String firstName;
     private String lastName;
     private String middleName;
@@ -17,14 +20,13 @@ public class User <T>{
     private String phone;
     private List<T> addresses;
 
-    public static User<Address> getDefault()
-    {
-        User<Address> user= new User<Address>();
+    public static User<Address> getDefault() {
+        User<Address> user = new User<Address>();
         user.setFirstName("John");
-                user.setLastName("Doe");
-                user.setMiddleName("Smith");
-                user.setBirthday("01-23-2000");
-                user.setPhone("0987654322");
+        user.setLastName("Doe");
+        user.setMiddleName("Smith");
+        user.setBirthday("01-23-2000");
+        user.setPhone("0987654322");
         return user;
     }
 }

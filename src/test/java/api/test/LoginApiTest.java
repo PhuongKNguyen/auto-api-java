@@ -39,9 +39,11 @@ public class LoginApiTest {
     @Test
     void verifyStaffLoginSuccessful() {
         LoginInput loginInput = new LoginInput(USER_STAFF_NAME, USER_STAFF_PASSWORD);
-        Response actualResponse = RestAssured.given().log().all().header("Content-Type", "application/json").body(loginInput).post(LOGIN_PATH);
+        Response actualResponse = RestAssured.given().log().all()
+                .header("Content-Type", "application/json")
+                .body(loginInput).post(LOGIN_PATH);
         assertThat(actualResponse.statusCode(), equalTo(200));
-        //Need to verify schema
+        //Need to verify token is not null and timeout is 120000
         LoginResponse loginResponse = actualResponse.as(LoginResponse.class);
         assertThat(loginResponse.getToken(), not(blankString()));
         assertThat(loginResponse.getTimeout(), equalTo(120000));

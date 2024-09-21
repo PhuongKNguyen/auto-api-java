@@ -4,26 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-132] Verify create user">
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/AddressResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/GetUserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/test/LoginApiTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/util/ApiConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-133] Verify create user API">
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/ValidationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/test/CheckDbTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/hibernate.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/country/CountryVersionThree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/country/CountryVersionThree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api/model/login/LoginInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/login/LoginInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/login/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/login/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/AddressResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/AddressResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/CreateUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/GetCountriesApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/LoginApiTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/json-schema/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/swagger.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/LoginApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/LoginApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json-schema/actual.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json-schema/expected.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,10 +102,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build auto-api-java.executor": "Run",
+    "Gradle.CheckDbTest.checkDatabaseConnection.executor": "Run",
+    "Gradle.CheckDbTest.executor": "Run",
     "Gradle.CreateUser.executor": "Run",
     "Gradle.CreateUser.verifyStaffCreateUserSuccessfully.executor": "Run",
     "Gradle.CreateUser.verifyStaffLoginSuccessful.executor": "Run",
-    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor": "Debug",
+    "Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser.executor": "Run",
+    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor": "Run",
     "Gradle.LoginApiTests.verifyLoginUnhappyCases.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordEmpty.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordNull.executor": "Run",
@@ -144,7 +141,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully">
-    <configuration name="CreateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CheckDbTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -157,7 +154,55 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;api.test.CreateUser&quot;" />
+            <option value="&quot;api.test.CheckDbTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CheckDbTest.checkDatabaseConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;api.test.CheckDbTest.checkDatabaseConnection&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateUserTest.verifyRequiredFieldsWhenCreatingUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;api.test.CreateUserTest.verifyRequiredFieldsWhenCreatingUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -240,61 +285,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="LoginApiTests.verifyLoginUnhappyCases" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;api.test.LoginApiTests.verifyLoginUnhappyCases&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="LoginApiTests.verifyStaffLoginSuccessful" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;api.test.LoginApiTests.verifyStaffLoginSuccessful&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully" />
+        <item itemvalue="Gradle.CheckDbTest.checkDatabaseConnection" />
+        <item itemvalue="Gradle.CheckDbTest" />
+        <item itemvalue="Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser" />
         <item itemvalue="Gradle.CreateUser.verifyStaffCreateUserSuccessfully" />
-        <item itemvalue="Gradle.CreateUser" />
-        <item itemvalue="Gradle.LoginApiTests.verifyStaffLoginSuccessful" />
-        <item itemvalue="Gradle.LoginApiTests.verifyLoginUnhappyCases" />
       </list>
     </recent_temporary>
   </component>
@@ -408,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725982408303</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[ID-133] Verify create user API">
+      <option name="closed" value="true" />
+      <created>1726411352907</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726411352907</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,18 +441,10 @@
     <MESSAGE value="[ID-128] Verify API get countries by filter" />
     <MESSAGE value="[ID-131] Refactor the most likely model to one model" />
     <MESSAGE value="[ID-132] Verify create user" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ID-132] Verify create user" />
+    <MESSAGE value="[ID-133] Verify create user API" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ID-133] Verify create user API" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
         <watch expression="randomEmail" />

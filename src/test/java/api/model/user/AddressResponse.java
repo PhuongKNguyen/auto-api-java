@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AddressResponse extends Address {
+public class AddressResponse {
     private String id;
     private String customerId;
     private String streetNumber;
