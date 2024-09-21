@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[Lesson-11] lesson 11">
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[Lesson-12] verify firstname is null and empty">
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/InstantSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +101,7 @@
     "Gradle.CreateUser.verifyStaffLoginSuccessful.executor": "Run",
     "Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser.executor": "Run",
     "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor": "Run",
+    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase.executor": "Run",
     "Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully.executor": "Run",
     "Gradle.LoginApiTests.verifyLoginUnhappyCases.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordEmpty.executor": "Run",
@@ -132,31 +134,7 @@
       <recent name="api.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser">
-    <configuration name="CheckDbTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;api.test.CheckDbTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase">
     <configuration name="CheckDbTest.checkDatabaseConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -229,6 +207,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;api.test.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -279,11 +281,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase" />
         <item itemvalue="Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser" />
         <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully" />
         <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully" />
         <item itemvalue="Gradle.CheckDbTest.checkDatabaseConnection" />
-        <item itemvalue="Gradle.CheckDbTest" />
       </list>
     </recent_temporary>
   </component>
@@ -413,7 +415,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726917185908</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[Lesson-12] verify firstname is null and empty">
+      <option name="closed" value="true" />
+      <created>1726921493531</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726921493531</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[Lesson-12] verify firstname is null and empty">
+      <option name="closed" value="true" />
+      <created>1726921499096</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726921499096</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,14 +461,15 @@
     <MESSAGE value="[ID-132] Verify create user" />
     <MESSAGE value="[ID-133] Verify create user API" />
     <MESSAGE value="[Lesson-11] lesson 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Lesson-11] lesson 11" />
+    <MESSAGE value="[Lesson-12] verify firstname is null and empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Lesson-12] verify firstname is null and empty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java</url>
-          <line>148</line>
+          <line>200</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

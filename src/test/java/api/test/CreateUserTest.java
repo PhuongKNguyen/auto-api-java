@@ -3,6 +3,7 @@ package api.test;
 import api.model.login.LoginInput;
 import api.model.login.LoginResponse;
 import api.model.user.*;
+import api.model.user.dto.DbAddress;
 import api.model.user.dto.DbUser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -57,6 +58,7 @@ public class CreateUserTest {
             SessionFactory sessionFactory =
                     new MetadataSources(registry)
                             .addAnnotatedClass(DbUser.class)
+                            .addAnnotatedClass(DbAddress.class)
                             .buildMetadata()
                             .buildSessionFactory();
         } catch (Exception e) {
@@ -83,7 +85,57 @@ public class CreateUserTest {
             TIMEOUT = loginResponse.getTimeout();
         }
     }
+    @Test
+    void verifyStaffCreateUserSuccessfullyByDatabase() {
+        Address address = Address.getDefault();
+        User<Address> user = User.getDefault();
+        String randomEmail = String.format("auto_api_%s@abc.com", System.currentTimeMillis());
+        user.setEmail(randomEmail);
+        user.setAddresses(List.of(address));
+        Instant beforeExecution = Instant.now();
+        Response createUserResponse = RestAssured.given().log().all()
+                .header("Content-Type", "application/json")
+                .header(AUTHORIZATION_HEADER, TOKEN)
+                .body(user)
+                .post(CREATE_USER_PATH);
+        out.printf("Create user response: %s%n", createUserResponse.asString());
+        assertThat(createUserResponse.statusCode(), equalTo(200));
+        CreateUserResponse actual = createUserResponse.as(CreateUserResponse.class);
+        createdUserIds.add(actual.getId());
+        assertThat(actual.getId(), not(blankString()));
+        assertThat(actual.getMessage(), equalTo("Customer created"));
+        ObjectMapper mapper=new ObjectMapper();
+        GetUserResponse<AddressResponse> expectedUser=mapper.convertValue(user, new TypeReference<GetUserResponse<AddressResponse>>() {
+        });
+        expectedUser.setId(actual.getId());
+        expectedUser.getAddresses().get(0).setCustomerId(actual.getId());
+        sessionFactory.inTransaction(session -> {
+            DbUser dbUser = session.createSelectionQuery("from DbUser where id=:id", DbUser.class)
+                    .setParameter("id", actual.getId())
+                    .getSingleResult();
+            List<DbAddress> dbAddresses = session.createSelectionQuery("from DbAddress where customerId=:customerId", DbAddress.class)
+                    .setParameter("customerId", actual.getId())
+                    .getResultList();
+            GetUserResponse<AddressResponse> actualUser = mapper.convertValue(dbUser, new TypeReference<GetUserResponse<AddressResponse>>() {
+            });
+            actualUser.setAddresses(mapper.convertValue(dbAddresses, new TypeReference<List<AddressResponse>>() {
+            }));
 
+            assertThat(actualUser, jsonEquals(expectedUser).whenIgnoringPaths("createdAt", "updatedAt",
+                    "addresses[*].id", "addresses[*].createdAt", "addresses[*].updatedAt"));
+            Instant userCreatedAt = Instant.parse(actualUser.getCreatedAt());
+            datetimeVerifier(beforeExecution, userCreatedAt);
+            Instant userUpdatedAt = Instant.parse(actualUser.getUpdatedAt());
+            datetimeVerifier(beforeExecution, userUpdatedAt);
+            actualUser.getAddresses().forEach(actualAddress -> {
+                assertThat(actualAddress.getId(), not(blankString()));
+                Instant addressCreatedAt = Instant.parse(actualAddress.getCreatedAt());
+                datetimeVerifier(beforeExecution, addressCreatedAt);
+                Instant addressUpdatedAt = Instant.parse(actualAddress.getUpdatedAt());
+                datetimeVerifier(beforeExecution, addressUpdatedAt);
+            });
+        });
+    }
     @Test
     void verifyStaffCreateUserSuccessfully() {
         Address address = Address.getDefault();
@@ -206,7 +258,7 @@ public class CreateUserTest {
         User<Address> user = User.getDefault();
         user.setFirstName(null);
         argumentsList.add(Arguments.arguments("Verify API return 400 when firstname is null", user));
-        user =User.getDefault();
+        user=User.getDefaultWithEmail();
         user.setFirstName("");
         argumentsList.add(Arguments.arguments("Verify API return 400 when firstname is empty", user));
         return argumentsList.stream();

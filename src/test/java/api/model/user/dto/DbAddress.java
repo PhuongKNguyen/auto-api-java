@@ -4,28 +4,26 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name="customers")
-@Data
-public class DbUser {
+@Table(name="addresses")
+public class DbAddress {
     @Id
     private UUID id;
-    private String firstName;
-    private String lastName;
-    private String middleName;
-    private String birthday;
-    private String email;
-    private String phone;
+    private UUID customerId;
+    private String streetNumber;
+    private String street;
+    private String ward;
+    private String district;
+    private String city;
+    private String state;
+    private String zip;
+    private String country;
     @JsonSerialize(using=InstantSerializer.class)
     private Instant createdAt;
     @JsonSerialize(using=InstantSerializer.class)
-    private Instant updatedAt;
-
+    private String updatedAt;
 }
