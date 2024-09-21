@@ -1,0 +1,3 @@
+apis:
+  src/test/resources/swagger.yml:
+    alias: "api-for-learning-testing"
