@@ -28,7 +28,5 @@ public class Address {
                 .zip("70000")
                 .country("VN")
                 .build();
-
-
     }
 }

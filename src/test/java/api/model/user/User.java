@@ -29,5 +29,15 @@ public class User<T> {
         user.setPhone("0987654322");
         return user;
     }
+    public static User<Address> getDefaultWithEmail()
+    {
+        User<Address> user=getDefault();
+        user.setEmail(String.format("auto_api_%s@abc.com",System.currentTimeMillis()));
+        return user;
+    }
+    @Override
+    public String toString(){
+        return String.format("User email: %s",this.email);
+    }
 }
 
