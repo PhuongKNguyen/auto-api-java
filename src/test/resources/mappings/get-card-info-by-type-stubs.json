@@ -1,0 +1,33 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPath": "/learn-matchers",
+        "method": "GET",
+        "queryParameters": {
+          "a":
+          {
+            "equalTo": "1"
+          },
+          "b":
+          {
+            "equalTo": "xyz"
+          }
+        },
+        "headers":
+        {
+          "api-key": {
+            "equalTo": "a-private-key"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "Ahihi",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    }
+  ]
+}

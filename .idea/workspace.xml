@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[Lesson-12] verify firstname is null and empty">
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbAddress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/InstantSerializer.java" afterDir="false" />
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[Lesson-14] verify created user by database query">
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/RestAssuredSetUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/StubServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/mappings/get-card-info-by-type-stubs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" afterDir="false" />
     </list>
@@ -94,14 +97,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build auto-api-java.executor": "Run",
-    "Gradle.CheckDbTest.checkDatabaseConnection.executor": "Run",
+    "Gradle.CheckDbTest.checkDatabaseConnection.executor": "Debug",
     "Gradle.CheckDbTest.executor": "Run",
     "Gradle.CreateUser.executor": "Run",
     "Gradle.CreateUser.verifyStaffCreateUserSuccessfully.executor": "Run",
     "Gradle.CreateUser.verifyStaffLoginSuccessful.executor": "Run",
     "Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser.executor": "Run",
     "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor": "Run",
-    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase.executor": "Run",
+    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase.executor": "Debug",
     "Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully.executor": "Run",
     "Gradle.LoginApiTests.verifyLoginUnhappyCases.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordEmpty.executor": "Run",
@@ -114,6 +117,7 @@
     "Gradle.LoginApiTests.verifyStaffLoginFailWithInValidUserAndValidPassword.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginFailWithValidUserAndInvalidPassword.executor": "Run",
     "Gradle.LoginApiTests.verifyStaffLoginSuccessful.executor": "Run",
+    "Gradle.auto-api-java [:api.common.StubServer.main()].executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/david/Documents/GITHUB/kapi-world/auto-api-java/src/test/resources",
@@ -134,7 +138,20 @@
       <recent name="api.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase">
+  <component name="RunManager" selected="Application.StubServer">
+    <configuration name="StubServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="api.common.StubServer" />
+      <module name="auto-api-java.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CheckDbTest.checkDatabaseConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -173,30 +190,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;api.test.CreateUserTest.verifyRequiredFieldsWhenCreatingUser&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreateUserTest.verifyStaffCreateUserSuccessfully" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;api.test.CreateUserTest.verifyStaffCreateUserSuccessfully&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -281,11 +274,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StubServer" />
+        <item itemvalue="Gradle.CheckDbTest.checkDatabaseConnection" />
         <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase" />
         <item itemvalue="Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser" />
         <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully" />
-        <item itemvalue="Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully" />
-        <item itemvalue="Gradle.CheckDbTest.checkDatabaseConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -431,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726921499096</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="[Lesson-14] verify created user by database query">
+      <option name="closed" value="true" />
+      <created>1726927310554</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726927310554</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,15 +463,24 @@
     <MESSAGE value="[ID-133] Verify create user API" />
     <MESSAGE value="[Lesson-11] lesson 11" />
     <MESSAGE value="[Lesson-12] verify firstname is null and empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Lesson-12] verify firstname is null and empty" />
+    <MESSAGE value="[Lesson-14] verify created user by database query" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Lesson-14] verify created user by database query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java</url>
-          <line>200</line>
-          <option name="timeStamp" value="4" />
+          <line>111</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/api/test/CheckDbTest.java</url>
+          <line>26</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,6 @@
 package api.test;
 
+import api.common.DatabaseConnection;
 import api.model.login.LoginInput;
 import api.model.login.LoginResponse;
 import api.model.user.*;
@@ -45,8 +46,7 @@ public class CreateUserTest {
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static long TIMEOUT = -1;
     private static long TIME_BEFORE_GET_TOKEN = -1;
-    private static SessionFactory sessionFactory;
-
+    private static SessionFactory sessionFactory= DatabaseConnection.getSession();
     @BeforeAll
     static void setUp() {
         RestAssured.baseURI = "http://localhost";
@@ -62,8 +62,6 @@ public class CreateUserTest {
                             .buildMetadata()
                             .buildSessionFactory();
         } catch (Exception e) {
-            // The registry would be destroyed by the SessionFactory, but we
-            // had trouble building the SessionFactory so destroy it manually.
             StandardServiceRegistryBuilder.destroy(registry);
         }
     }

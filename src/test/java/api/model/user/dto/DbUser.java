@@ -23,9 +23,9 @@ public class DbUser {
     private String birthday;
     private String email;
     private String phone;
-    @JsonSerialize(using=InstantSerializer.class)
-    private Instant createdAt;
-    @JsonSerialize(using=InstantSerializer.class)
-    private Instant updatedAt;
+    //@JsonSerialize(using=InstantSerializer.class)
+    private LocalDateTime createdAt;
+    //@JsonSerialize(using=InstantSerializer.class)
+    private LocalDateTime updatedAt;
 
 }
