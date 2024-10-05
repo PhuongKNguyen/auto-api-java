@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[Lesson-14] verify created user by database query">
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/RestAssuredSetUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/common/StubServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/mappings/get-card-info-by-type-stubs.json" afterDir="false" />
+    <list default="true" id="53264693-1322-40b6-806f-4f900cf1ec24" name="Changes" comment="[ID-140] wiremock">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/allure.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/model/user/dto/DbUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/test/CreateUserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/json-schema/json.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/json-schema/json.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/get-card-info-by-type-stubs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/get-card-info-by-type-stubs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,36 +91,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build auto-api-java.executor": "Run",
-    "Gradle.CheckDbTest.checkDatabaseConnection.executor": "Debug",
-    "Gradle.CheckDbTest.executor": "Run",
-    "Gradle.CreateUser.executor": "Run",
-    "Gradle.CreateUser.verifyStaffCreateUserSuccessfully.executor": "Run",
-    "Gradle.CreateUser.verifyStaffLoginSuccessful.executor": "Run",
-    "Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser.executor": "Run",
-    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor": "Run",
-    "Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase.executor": "Debug",
-    "Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully.executor": "Run",
-    "Gradle.LoginApiTests.verifyLoginUnhappyCases.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordEmpty.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordNull.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenUserAndPasswordEmpty.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenUserAndPasswordNull.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenUserNameEmpty.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWhenUserNameNull.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWithInValidUserAndInvalidPassword.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWithInValidUserAndValidPassword.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginFailWithValidUserAndInvalidPassword.executor": "Run",
-    "Gradle.LoginApiTests.verifyStaffLoginSuccessful.executor": "Run",
-    "Gradle.auto-api-java [:api.common.StubServer.main()].executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/david/Documents/GITHUB/kapi-world/auto-api-java/src/test/resources",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build auto-api-java.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CheckDbTest.checkDatabaseConnection.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.CheckDbTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUser.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUser.verifyStaffCreateUserSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUser.verifyStaffLoginSuccessful.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUserTest.verifyRequiredFieldsWhenCreatingUser.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUserTest.verifyStaffCreateUserSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateUserTest.verifyStaffCreateUserSuccessfullyByDatabase.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.CreateUserTest.verifyStaffCreateUserWithMultipleAddressesSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyLoginUnhappyCases.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenPasswordNull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenUserAndPasswordEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenUserAndPasswordNull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenUserNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWhenUserNameNull.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWithInValidUserAndInvalidPassword.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWithInValidUserAndValidPassword.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginFailWithValidUserAndInvalidPassword.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.LoginApiTests.verifyStaffLoginSuccessful.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.auto-api-java [:api.common.StubServer.main()].executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/david/Documents/GITHUB/kapi-world/auto-api-java/src/test/resources&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
@@ -432,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726927310554</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[ID-140] wiremock">
+      <option name="closed" value="true" />
+      <created>1727363634216</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1727363634216</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +469,8 @@
     <MESSAGE value="[Lesson-11] lesson 11" />
     <MESSAGE value="[Lesson-12] verify firstname is null and empty" />
     <MESSAGE value="[Lesson-14] verify created user by database query" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Lesson-14] verify created user by database query" />
+    <MESSAGE value="[ID-140] wiremock" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ID-140] wiremock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

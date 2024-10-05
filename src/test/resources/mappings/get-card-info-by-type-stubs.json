@@ -2,32 +2,25 @@
   "mappings": [
     {
       "request": {
-        "urlPath": "/learn-matchers",
+        "urlPath": "/get-card-info-by-type",
         "method": "GET",
-        "queryParameters": {
-          "a":
-          {
-            "equalTo": "1"
-          },
-          "b":
-          {
-            "equalTo": "xyz"
-          }
-        },
+        "queryParameters":"",
         "headers":
         {
-          "api-key": {
+          "api-key":{
             "equalTo": "a-private-key"
           }
         }
       },
       "response": {
         "status": 200,
-        "body": "Ahihi",
-        "headers": {
+        "body": "haha",
+        "headers":
+        {
           "Content-Type": "text/plain"
         }
       }
-    }
+    },
+
   ]
 }
